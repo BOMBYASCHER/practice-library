@@ -49,6 +49,9 @@ public class BookRepository {
                 Book book = new Book(id, title, author, publishedDate, isbn);
                 books.add(book);
             }
+            if (books.isEmpty()) {
+                return "Theres no books.";
+            }
             String output = books.stream().map(Book::toString).collect(Collectors.joining("\n    "));
             return String.format("""
                     List of books:

@@ -41,6 +41,9 @@ public class ReaderRepository {
                 Reader reader = new Reader(id, name, email);
                 readers.add(reader);
             }
+            if (readers.isEmpty()) {
+                return "Theres no readers.";
+            }
             String output = readers.stream().map(Reader::toString).collect(Collectors.joining("\n    "));
             return String.format("""
                     List of readers:
